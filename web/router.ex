@@ -19,8 +19,8 @@ defmodule ClimbingLog.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", ClimbingLog do
-  #   pipe_through :api
-  # end
+  scope "/api", ClimbingLog do
+    pipe_through :api
+    resources "/climbs", ClimbController, except: [:new, :edit]
+  end
 end
