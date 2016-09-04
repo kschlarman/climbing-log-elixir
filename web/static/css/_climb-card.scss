@@ -1,0 +1,55 @@
+.climb-card {
+  @extend .noselect;
+  background: white;
+  font-size: $h4-size;
+  padding: $base-spacing-unit; 
+  margin-top: $half-spacing-unit;
+  box-shadow: 0 1px 4px rgba(0,0,0,.2);
+  border-left-width: $base-spacing-unit;
+  border-left-style: solid;
+  cursor: pointer;
+
+  &:last-child {
+    margin-bottom: $base-spacing-unit;
+  }
+
+  &.trad {
+    border-color: $primary-color;
+  }
+
+  &.sport {
+    border-color: $secondary-color;
+  } 
+
+  .notes {
+    font-size: $h6-size;
+  }
+
+  .notes, .actions {
+    padding-top: $half-spacing-unit;
+  }
+
+  .actions {
+    float: right;
+
+    & > :not(:last-child) {
+      margin-right: $half-spacing-unit;
+    }
+  }
+
+  .fold {
+    display: none;
+    overflow: hidden;
+  }
+
+  &.open {
+    .fold {
+      display: block;
+    }
+  }
+
+  .grade {
+    float: right;
+  }
+
+}
