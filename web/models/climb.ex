@@ -12,6 +12,16 @@ defmodule ClimbingLog.Climb do
     timestamps()
   end
 
+  def sorted_by_date(query) do
+    from climb in query,
+    order_by: [desc: climb.date]
+  end
+
+  def grouped_by_date(climbs) do
+    climbs
+    |> Enum.group_by(fn (%{date: date}) -> date end)
+  end
+
   @doc """
   Builds a changeset based on the `struct` and `params`.
   """
