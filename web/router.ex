@@ -22,6 +22,7 @@ defmodule ClimbingLog.Router do
   scope "/api", ClimbingLog do
     pipe_through :api
     resources "/climbs", ClimbController, except: [:new, :edit]
-    get "/timeline", TimelineController, :show
+    get "/timeline", TimelineController, :index
+    get "/analytics", AnalyticsController, :index
   end
 end

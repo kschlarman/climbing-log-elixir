@@ -17,7 +17,7 @@ module.exports = {
       url: 'api/analytics',
       dataType: 'json',
       success: function(data) {
-        success(data);
+        success(data.data);
       },
       error: _logError 
     });

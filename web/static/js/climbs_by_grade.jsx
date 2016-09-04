@@ -1,5 +1,5 @@
 var React = require('react');
-var BarChart = require("react-chartjs").Bar;
+var BarChart = require("react-chartjs-2").Bar;
 
 var ClimbsByGrade = React.createClass({
   grades: function() {
@@ -25,16 +25,15 @@ var ClimbsByGrade = React.createClass({
     return fullCounts;
   },
   render: function() {
-    var chartData;
     var data = {
       labels: this.grades(), 
       datasets: [{
         label: "Sport",
-        fillColor: "#3498DB",
-        data: this.gradeCounts().sport 
+        backgroundColor: "#3498DB",
+        data: this.gradeCounts().sport
       }, {
         label: "Trad",
-        fillColor: "#E74C3C",
+        backgroundColor: "#E74C3C",
         data: this.gradeCounts().trad
       }]
     };
@@ -42,7 +41,7 @@ var ClimbsByGrade = React.createClass({
     return (
       <div>
         <h3>Climbs by Grade</h3>
-        <BarChart className='l-full-width' data={data}/>
+        <BarChart className='l-full-width' data={data} />
       </div>
     )
   }

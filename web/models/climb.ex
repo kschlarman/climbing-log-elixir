@@ -17,6 +17,12 @@ defmodule ClimbingLog.Climb do
     order_by: [desc: climb.date]
   end
 
+  def grouped_by_grade(query) do
+    from climb in query,
+    group_by: [climb.grade, climb.type],
+    select: {climb.grade, climb.type, count(climb.id)}
+  end
+
   def grouped_by_date(climbs) do
     climbs
     |> Enum.group_by(fn (%{date: date}) -> date end)

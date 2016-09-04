@@ -3,7 +3,7 @@ defmodule ClimbingLog.TimelineController do
 
   alias ClimbingLog.Climb
 
-  def show(conn, _params) do
+  def index(conn, _params) do
     climbs = Climb
     |> Climb.sorted_by_date
     |> Repo.all

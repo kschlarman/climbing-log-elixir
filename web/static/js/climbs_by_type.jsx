@@ -1,5 +1,5 @@
 var React = require('react');
-var DoughnutChart = require("react-chartjs").Doughnut;
+var DoughnutChart = require("react-chartjs-2").Doughnut;
 
 var ClimbsByType = React.createClass({
   typeCounts: function() {
@@ -16,18 +16,20 @@ var ClimbsByType = React.createClass({
     return counts;
   },
   render: function() {
-    var chartData;
     var counts = this.typeCounts();
-
-    var data = [{
-      value: counts.trad,
-      color: "#E74C3C",
-      label: "Trad"
-    }, {
-      value: counts.sport,
-      color:"#3498DB",
-      label: "Sport"
-    }];
+    var data = {
+      labels: [
+          "Trad",
+          "Sport"
+      ],
+      datasets: [{
+        data: [counts.trad, counts.sport],
+        backgroundColor: [
+            "#E74C3C",
+            "#3498DB"
+        ]
+      }]
+    };
 
     return (
       <div>
