@@ -11,8 +11,8 @@ var EditClimb = React.createClass({
   },
   componentDidMount: function() {
     var self = this;
-    Api.getClimb(this.props.params.id, function(data) {
-      self.setState({climb: data});
+    Api.getClimb(this.props.params.id, function(climb) {
+      self.setState({climb: climb.data});
     });
   },
   onSubmit: function(climb) {

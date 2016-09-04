@@ -60,7 +60,7 @@ module.exports = {
     $.ajax({
       url: 'api/climbs/' + id,
       method: 'PUT',
-      data: climb,
+      data: { climb: climb },
       dataType: 'json',
       success: function(data) {
         success(data);

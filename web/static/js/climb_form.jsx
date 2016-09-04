@@ -6,7 +6,6 @@ var ClimbForm = React.createClass({
     return {
       name: "",
       grade: "5.8",
-      lead: true,
       type: "sport",
       notes: "",
       location: "",
@@ -22,9 +21,6 @@ var ClimbForm = React.createClass({
   handleLocationChange: function(event) {
     this.setState({location: event.target.value});
   },
-  handleLeadChange: function(event) {
-    this.setState({lead: event.target.checked});
-  },
   handleGradeChange: function(event) {
     this.setState({grade: event.target.value});
   },
@@ -37,8 +33,11 @@ var ClimbForm = React.createClass({
   handleDateChange: function(event) {
     this.setState({date: event.target.value});
   },
+  componentWillReceiveProps: function(nextProps) {
+    this.setState(nextProps.climb)
+  },
 
-  render: function() {  
+  render: function() {
     return (
       <div>
 
@@ -69,12 +68,6 @@ var ClimbForm = React.createClass({
                 <option>5.11c</option>
                 <option>5.11d</option>
               </select>
-            </label>
-
-            <label className="pure-checkbox">
-               <input type="checkbox"
-                 onChange={this.handleLeadChange}
-                 checked={this.state.lead}/> Lead?
             </label>
 
             <label>Type 
